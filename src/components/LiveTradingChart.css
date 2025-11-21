@@ -1,0 +1,421 @@
+.live-trading-chart {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.trading-svg {
+  filter: drop-shadow(0 10px 40px rgba(102, 126, 234, 0.3));
+}
+
+/* Price Grid Animation */
+.price-grid line {
+  animation: gridPulse 2s ease-in-out infinite;
+}
+
+.price-grid line:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Candlestick Animations */
+.live-candle {
+  animation: candleForm 1s ease-out backwards;
+}
+
+.candle-anim-1 { animation-delay: 0s; }
+.candle-anim-2 { animation-delay: 0.2s; }
+.candle-anim-3 { animation-delay: 0.4s; }
+.candle-anim-4 { animation-delay: 0.6s; }
+.candle-anim-5 { animation-delay: 0.8s; }
+.candle-anim-6 { animation-delay: 1s; }
+.candle-anim-7 { animation-delay: 1.2s; }
+.candle-anim-8 { animation-delay: 1.4s; }
+
+@keyframes candleForm {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Wick Animation */
+.wick-anim {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawWick 0.5s ease-out forwards;
+}
+
+.candle-anim-1 .wick-anim { animation-delay: 0s; }
+.candle-anim-2 .wick-anim { animation-delay: 0.2s; }
+.candle-anim-3 .wick-anim { animation-delay: 0.4s; }
+.candle-anim-4 .wick-anim { animation-delay: 0.6s; }
+.candle-anim-5 .wick-anim { animation-delay: 0.8s; }
+.candle-anim-6 .wick-anim { animation-delay: 1s; }
+.candle-anim-7 .wick-anim { animation-delay: 1.2s; }
+.candle-anim-8 .wick-anim { animation-delay: 1.4s; }
+
+@keyframes drawWick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Body Animation */
+.body-anim {
+  transform-origin: bottom;
+  animation: growBody 0.6s ease-out forwards;
+}
+
+.candle-anim-1 .body-anim { animation-delay: 0.1s; }
+.candle-anim-2 .body-anim { animation-delay: 0.3s; }
+.candle-anim-3 .body-anim { animation-delay: 0.5s; }
+.candle-anim-4 .body-anim { animation-delay: 0.7s; }
+.candle-anim-5 .body-anim { animation-delay: 0.9s; }
+.candle-anim-6 .body-anim { animation-delay: 1.1s; }
+.candle-anim-7 .body-anim { animation-delay: 1.3s; }
+.candle-anim-8 .body-anim { animation-delay: 1.5s; }
+
+@keyframes growBody {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Current Candle (Live Update) */
+.current-candle {
+  animation: candleForm 1s ease-out 1.4s backwards, livePulse 2s ease-in-out 2s infinite;
+}
+
+.current-body {
+  animation: growBody 0.6s ease-out 1.5s forwards, bodyGrow 3s ease-in-out 2.5s infinite;
+}
+
+.current-wick {
+  animation: drawWick 0.5s ease-out 1.4s forwards, wickExtend 3s ease-in-out 2.5s infinite;
+}
+
+.current-vol {
+  animation: volumeRise 0.8s ease-out 1.8s backwards, volumeFlicker 2s ease-in-out 2.8s infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes bodyGrow {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.15);
+  }
+}
+
+@keyframes wickExtend {
+  0%, 100% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: -10;
+  }
+}
+
+@keyframes volumeFlicker {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Volume Bars Animation */
+.vol-bar {
+  transform-origin: bottom;
+  animation: volumeRise 0.8s ease-out backwards;
+}
+
+.vol-anim-1 { animation-delay: 0.2s; }
+.vol-anim-2 { animation-delay: 0.4s; }
+.vol-anim-3 { animation-delay: 0.6s; }
+.vol-anim-4 { animation-delay: 0.8s; }
+.vol-anim-5 { animation-delay: 1s; }
+.vol-anim-6 { animation-delay: 1.2s; }
+.vol-anim-7 { animation-delay: 1.4s; }
+.vol-anim-8 { animation-delay: 1.6s; }
+
+@keyframes volumeRise {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Volume Bar Pulse */
+.vol-bar {
+  animation: volumeRise 0.8s ease-out backwards, volumePulse 3s ease-in-out 2s infinite;
+}
+
+@keyframes volumePulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Buy Signal Markers */
+.buy-marker {
+  animation: signalAppear 0.8s ease-out backwards, signalPulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.buy-marker-1 {
+  animation-delay: 1.6s, 2s;
+}
+
+.buy-marker-2 {
+  animation-delay: 2.2s, 2.5s;
+}
+
+@keyframes signalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes signalPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+/* Buy Arrows */
+.buy-arrow {
+  animation: arrowBounce 1s ease-out backwards, arrowFloat 2s ease-in-out infinite;
+}
+
+.buy-marker-1 ~ .buy-arrow {
+  animation-delay: 1.7s, 2.2s;
+}
+
+.buy-marker-2 ~ .buy-arrow {
+  animation-delay: 2.3s, 2.7s;
+}
+
+@keyframes arrowBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arrowFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Sell Signal Marker */
+.sell-marker {
+  animation: signalAppear 0.8s ease-out 1.9s backwards, signalPulse 2s ease-in-out 2.3s infinite;
+}
+
+.sell-arrow {
+  animation: arrowBounce 1s ease-out 2s backwards, arrowFloatDown 2s ease-in-out 2.5s infinite;
+}
+
+@keyframes arrowFloatDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* Signal Text */
+.signal-text {
+  animation: textFadeIn 0.6s ease-out backwards;
+}
+
+.buy-signals .signal-text:nth-of-type(1) {
+  animation-delay: 1.8s;
+}
+
+.buy-signals .signal-text:nth-of-type(2) {
+  animation-delay: 2.4s;
+}
+
+.sell-signals .signal-text {
+  animation-delay: 2.1s;
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Trend Line */
+.trend-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawTrend 3s ease-out 0.5s forwards, trendShimmer 3s ease-in-out 3.5s infinite;
+}
+
+@keyframes drawTrend {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes trendShimmer {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Price Labels */
+.price-tag,
+.change-tag {
+  animation: tagSlide 0.8s ease-out 2s backwards;
+}
+
+.change-tag {
+  animation-delay: 2.2s;
+}
+
+@keyframes tagSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.price-labels-live text {
+  animation: priceFlicker 0.8s ease-out 2.1s backwards, priceUpdate 3s ease-in-out 3s infinite;
+}
+
+@keyframes priceFlicker {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes priceUpdate {
+  0%, 90%, 100% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 0.7;
+  }
+}
+
+/* Support/Resistance Lines */
+.support-line,
+.resistance-line {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawSR 2s ease-out 1s forwards, srPulse 3s ease-in-out 3s infinite;
+}
+
+.resistance-line {
+  animation-delay: 1.2s, 3.2s;
+}
+
+@keyframes drawSR {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes srPulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Live Indicator */
+.live-indicator {
+  filter: drop-shadow(0 0 4px #10b981);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .live-trading-chart {
+    padding: 10px;
+  }
+
+  .trading-svg {
+    height: 300px;
+  }
+}

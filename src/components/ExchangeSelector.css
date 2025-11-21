@@ -1,0 +1,344 @@
+.exchange-selector {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  border: 2px solid #e0e0e0;
+}
+
+.selector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.selector-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.info-tooltip {
+  position: relative;
+  cursor: help;
+  color: #667eea;
+}
+
+.info-tooltip:hover .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-text {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 8px;
+  z-index: 10;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 10px;
+  border: 5px solid transparent;
+  border-top-color: #333;
+}
+
+/* Exchange Grid */
+.exchange-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.exchange-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.exchange-card:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.exchange-card.active {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+}
+
+.exchange-icon {
+  font-size: 2rem;
+}
+
+.exchange-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Account Type Section */
+.account-type-section {
+  margin-bottom: 24px;
+}
+
+.account-type-section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.account-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.account-type-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.account-type-card:hover:not(.disabled) {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.account-type-card.active {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.account-type-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.account-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.account-type-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.unavailable-badge {
+  background: #dc3545;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.account-type-desc {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Fee Info Card */
+.fee-info-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #667eea;
+}
+
+.fee-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.fee-info-header h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.account-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.fee-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.fee-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fee-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.fee-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.funding-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fff3cd;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #856404;
+}
+
+/* Tips Toggle */
+.tips-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #667eea;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+  font-family: inherit;
+}
+
+.tips-toggle:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+/* Exchange Tips */
+.exchange-tips {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  margin-top: 12px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.exchange-tips ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.exchange-tips li {
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.exchange-tips li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #11998e;
+  font-weight: 700;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .exchange-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .account-type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .exchange-selector {
+    padding: 16px;
+  }
+
+  .exchange-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-info-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

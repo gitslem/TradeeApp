@@ -1,0 +1,294 @@
+.trading-charts-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.trading-chart-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 40px rgba(102, 126, 234, 0.3));
+}
+
+/* Grid Lines Animation */
+.grid-lines line {
+  animation: gridFadeIn 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+.grid-lines line:nth-child(1) { animation-delay: 0.1s; }
+.grid-lines line:nth-child(2) { animation-delay: 0.15s; }
+.grid-lines line:nth-child(3) { animation-delay: 0.2s; }
+.grid-lines line:nth-child(4) { animation-delay: 0.25s; }
+.grid-lines line:nth-child(5) { animation-delay: 0.3s; }
+
+@keyframes gridFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Moving Average Lines */
+.ma-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 3s ease-out forwards;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+.ma-fast {
+  animation-delay: 0.5s;
+}
+
+.ma-slow {
+  animation-delay: 0.7s;
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Candlesticks Animation */
+.candle {
+  animation: candleAppear 0.6s ease-out backwards;
+}
+
+.candle-1 { animation-delay: 1s; }
+.candle-2 { animation-delay: 1.1s; }
+.candle-3 { animation-delay: 1.2s; }
+.candle-4 { animation-delay: 1.3s; }
+.candle-5 { animation-delay: 1.4s; }
+.candle-6 { animation-delay: 1.5s; }
+
+@keyframes candleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Add subtle floating animation to candles */
+.candle rect {
+  animation: candleFloat 3s ease-in-out infinite;
+}
+
+.candle-1 rect { animation-delay: 0s; }
+.candle-2 rect { animation-delay: 0.3s; }
+.candle-3 rect { animation-delay: 0.6s; }
+.candle-4 rect { animation-delay: 0.9s; }
+.candle-5 rect { animation-delay: 1.2s; }
+.candle-6 rect { animation-delay: 1.5s; }
+
+@keyframes candleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Volume Bars */
+.volume-bar {
+  animation: volumeGrow 0.8s ease-out backwards;
+  transform-origin: bottom;
+}
+
+.vol-1 { animation-delay: 1.6s; }
+.vol-2 { animation-delay: 1.7s; }
+.vol-3 { animation-delay: 1.8s; }
+.vol-4 { animation-delay: 1.9s; }
+.vol-5 { animation-delay: 2s; }
+.vol-6 { animation-delay: 2.1s; }
+
+@keyframes volumeGrow {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* Add pulse animation to volume bars */
+.volume-bar {
+  animation: volumeGrow 0.8s ease-out backwards, volumePulse 2s ease-in-out 2.5s infinite;
+}
+
+@keyframes volumePulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Trend Arrow */
+.trend-arrow {
+  animation: arrowSlide 1s ease-out 2.2s backwards;
+}
+
+@keyframes arrowSlide {
+  from {
+    opacity: 0;
+    transform: translate(-20px, 20px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translate(0, 0);
+  }
+}
+
+/* Signal Marker */
+.signal-marker {
+  animation: signalPulse 2s ease-in-out 2.4s infinite;
+  transform-origin: center;
+}
+
+@keyframes signalPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+/* Buy Signal Text */
+.trend-indicators text {
+  animation: textFadeIn 0.6s ease-out 2.5s backwards;
+}
+
+@keyframes textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Price Labels */
+.current-price {
+  animation: priceUpdate 0.8s ease-out 2.3s backwards;
+  font-weight: bold;
+}
+
+.price-change {
+  animation: priceUpdate 0.8s ease-out 2.4s backwards;
+  font-weight: bold;
+}
+
+@keyframes priceUpdate {
+  0% {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Stats Panel */
+.chart-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(20, 20, 40, 0.85);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: statsSlideUp 0.8s ease-out 2.6s backwards;
+}
+
+@keyframes statsSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.stat-value.positive {
+  color: #10b981;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .trading-charts-container {
+    padding: 20px 10px;
+  }
+
+  .chart-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .stat-item {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Add shimmer effect to moving averages */
+.ma-line {
+  animation: drawLine 3s ease-out forwards, maShimmer 3s ease-in-out 3.5s infinite;
+}
+
+@keyframes maShimmer {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px currentColor) brightness(1.2);
+  }
+}

@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: tradee-crypto-calculator
+    runtime: node
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0

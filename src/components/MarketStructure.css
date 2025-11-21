@@ -1,0 +1,413 @@
+.market-structure {
+  width: 100%;
+  animation: fadeIn 0.5s ease-out;
+  position: relative;
+  z-index: 1;
+  padding: 40px 60px;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.market-structure > h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.market-structure > p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.market-structure h2 {
+  color: #11998e;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.structure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+}
+
+.market-structure .input-section,
+.market-structure .analysis-section {
+  background: white;
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+}
+
+.input-section h3,
+.analysis-section h3 {
+  color: #11998e;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-bottom: 3px solid #11998e;
+  padding-bottom: 12px;
+}
+
+.levels-section {
+  margin-top: 25px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.levels-section h3 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #333;
+  border: none;
+}
+
+.level-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.level-row input,
+.level-row select {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.level-row input {
+  flex: 1;
+}
+
+.level-row select {
+  width: 120px;
+}
+
+.remove-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+  background: #c82333;
+}
+
+.add-btn {
+  width: 100%;
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+}
+
+.analysis-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.analysis-card h4 {
+  color: #667eea;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.analysis-item {
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border-left: 4px solid #667eea;
+  font-size: 0.95rem;
+}
+
+.range-bar {
+  position: relative;
+  height: 40px;
+  background: linear-gradient(to right, #dc3545, #ffc107, #28a745);
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.range-indicator {
+  position: absolute;
+  top: -5px;
+  width: 4px;
+  height: 50px;
+  background: white;
+  border: 3px solid #333;
+  border-radius: 4px;
+  transform: translateX(-50%);
+}
+
+.range-text {
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.fib-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fib-level {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.fib-label {
+  font-weight: 600;
+  color: #667eea;
+  min-width: 60px;
+}
+
+.fib-price {
+  font-weight: 600;
+  color: #333;
+}
+
+.fib-nearby {
+  color: #28a745;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.levels-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resistance-summary,
+.support-summary {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.resistance-summary h5,
+.support-summary h5 {
+  color: #667eea;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.level-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.level-item.strong {
+  background: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.level-item.moderate {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.level-item.weak {
+  background: #f8d7da;
+  border-left: 4px solid #dc3545;
+}
+
+.strength-badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.current-price-display {
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.trading-suggestions {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.trading-suggestions h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.trading-suggestions ul {
+  list-style: none;
+}
+
+.trading-suggestions li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.trading-suggestions li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+@media (max-width: 968px) {
+  .structure-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .market-structure {
+    padding: 30px 20px;
+  }
+
+  .market-structure > h1 {
+    font-size: 2rem;
+  }
+
+  .market-structure > p {
+    font-size: 1rem;
+  }
+
+  .market-structure h2 {
+    font-size: 1.5rem;
+  }
+
+  .market-structure .input-section,
+  .market-structure .analysis-section {
+    padding: 24px;
+  }
+
+  .input-section h3,
+  .analysis-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .level-row {
+    flex-wrap: wrap;
+  }
+
+  .level-row select {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .market-structure {
+    padding: 20px 12px;
+  }
+
+  .market-structure > h1 {
+    font-size: 1.75rem;
+  }
+
+  .market-structure > p {
+    font-size: 0.95rem;
+  }
+
+  .market-structure h2 {
+    font-size: 1.25rem;
+  }
+
+  .market-structure .input-section,
+  .market-structure .analysis-section {
+    padding: 20px 16px;
+  }
+
+  .input-section h3,
+  .analysis-section h3 {
+    font-size: 1.15rem;
+  }
+
+  .levels-section {
+    padding: 16px;
+  }
+
+  .level-row {
+    flex-direction: column;
+  }
+
+  .level-row select {
+    width: 100%;
+  }
+
+  .add-btn,
+  .remove-btn {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .analysis-card {
+    padding: 16px;
+  }
+
+  .analysis-card h4 {
+    font-size: 1rem;
+  }
+
+  .current-price-display {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+}
