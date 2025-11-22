@@ -1,10 +1,6 @@
 # Crypto Trading Position Calculator
 
 A comprehensive web-based trading tool for cryptocurrency traders to calculate position sizes, manage risk, and analyze market structure and price action.
-<img width="1512" height="982" alt="Screenshot 2025-11-21 at 15 35 05" src="https://github.com/user-attachments/assets/adbce943-d269-4d64-bd4d-c0e4b4f9b0de" />
-<img width="1512" height="982" alt="Screenshot 2025-11-21 at 15 36 04" src="https://github.com/user-attachments/assets/fb31bce8-98ec-4674-af13-f34187ba676e" />
-<img width="1512" height="982" alt="Screenshot 2025-11-21 at 15 36 18" src="https://github.com/user-attachments/assets/9c65c9e1-6f96-464b-9757-a5f8899c6767" />
-<img width="1512" height="982" alt="Screenshot 2025-11-21 at 15 36 24" src="https://github.com/user-attachments/assets/cff8ae3c-dbe5-490e-88d6-012770f6a08f" />
 
 
 
