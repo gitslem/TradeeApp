@@ -3,7 +3,7 @@
 A comprehensive web-based trading tool for cryptocurrency traders to calculate position sizes, manage risk, and analyze market structure and price action.
 
 
-
+https://traddii.web.app
 
 
 
