@@ -146,7 +146,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License - feel free to use this tool for your trading analysis.
+Not allowed to reproduce or alter project without prope perrmission from SLEM.
 
 ## Disclaimer
 
